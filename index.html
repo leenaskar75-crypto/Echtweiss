@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#172B38">
+<title>ECHTWEISS – Kunden-App</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6f7;color:#172b38}
+header{background:#172b38;color:white;padding:24px 20px}
+.logo{font-size:25px;font-weight:800;letter-spacing:2px}
+header p{color:#cbd5dc;margin-bottom:0}
+main{max-width:650px;margin:auto;padding:20px}
+.hero{background:#203b4c;color:white;padding:28px 22px;border-radius:18px;margin-bottom:25px}
+.hero h1{font-size:29px}
+.hero p{line-height:1.6;color:#d8e2e8}
+h2{font-size:21px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.service{background:white;padding:19px 14px;border-radius:14px;box-shadow:0 2px 9px #00000009}
+.service span{font-size:25px}
+.service h3{font-size:15px}
+button,.btn{display:block;width:100%;border:0;border-radius:10px;padding:15px;background:#203b4c;color:white;font-size:16px;font-weight:bold;text-decoration:none;text-align:center;cursor:pointer}
+form{background:white;padding:20px;border-radius:15px;margin-top:25px}
+input,select,textarea{width:100%;padding:13px;margin:8px 0 15px;border:1px solid #ccd3d8;border-radius:9px;font-size:15px;background:white}
+label{font-weight:bold;font-size:14px}
+.contact{display:grid;gap:12px;margin-top:20px}
+footer{text-align:center;padding:25px;color:#687782;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">ECHTWEISS</div>
+<p>Gebäudereinigung & Service</p>
+</header>
+<main>
+<section class="hero">
+<h1>Willkommen bei Echtweiß!</h1>
+<p>Dein zuverlässiger Partner für Reinigung, Hausmeisterservice und vieles mehr.</p>
+<a class="btn" href="#anfrage" style="background:white;color:#172b38">Jetzt Angebot anfragen</a>
+</section>
+
+<h2>Unsere Dienstleistungen</h2>
+<div class="grid">
+<div class="service"><span>✨</span><h3>Gebäudereinigung</h3></div>
+<div class="service"><span>🏢</span><h3>Büroreinigung</h3></div>
+<div class="service"><span>🪟</span><h3>Fensterreinigung</h3></div>
+<div class="service"><span>🔧</span><h3>Hausmeisterservice</h3></div>
+<div class="service"><span>🌳</span><h3>Grünpflege</h3></div>
+<div class="service"><span>🚚</span><h3>Umzug & Transport</h3></div>
+<div class="service"><span>🧹</span><h3>Bauendreinigung</h3></div>
+<div class="service"><span>📦</span><h3>Entrümpelung</h3></div>
+</div>
+
+<form id="anfrage">
+<h2>Angebot anfragen</h2>
+<label>Dein Name</label>
+<input id="name" required placeholder="Vor- und Nachname">
+<label>E-Mail</label>
+<input id="email" type="email" required placeholder="Deine E-Mail-Adresse">
+<label>Telefon</label>
+<input id="phone" type="tel" placeholder="Deine Telefonnummer">
+<label>Gewünschte Dienstleistung</label>
+<select id="service">
+<option>Gebäudereinigung</option>
+<option>Büroreinigung</option>
+<option>Fensterreinigung</option>
+<option>Hausmeisterservice</option>
+<option>Grünpflege</option>
+<option>Umzug & Transport</option>
+<option>Bauendreinigung</option>
+<option>Entrümpelung</option>
+<option>Sonstiges</option>
+</select>
+<label>Deine Nachricht</label>
+<textarea id="message" rows="4" placeholder="Wie können wir dir helfen?"></textarea>
+<button type="submit">Anfrage per E-Mail senden</button>
+</form>
+
+<div class="contact">
+<a class="btn" href="https://wa.me/4917632451245">WhatsApp Kontakt</a>
+<a class="btn" href="tel:017632451245">Jetzt anrufen</a>
+<a class="btn" href="mailto:info@echtweiss-service.de">E-Mail schreiben</a>
+</div>
+</main>
+<footer>© ECHTWEISS – Gebäudereinigung & Service</footer>
+<script>
+document.getElementById("anfrage").addEventListener("submit",function(e){
+e.preventDefault();
+const n=document.getElementById("name").value;
+const mail=document.getElementById("email").value;
+const phone=document.getElementById("phone").value;
+const service=document.getElementById("service").value;
+const msg=document.getElementById("message").value;
+const subject=encodeURIComponent("Neue Kundenanfrage – "+service);
+const body=encodeURIComponent("Name: "+n+"\nE-Mail: "+mail+"\nTelefon: "+phone+"\nLeistung: "+service+"\nNachricht: "+msg);
+location.href="mailto:info@echtweiss-service.de?subject="+subject+"&body="+body;
+});
+</script>
+</body>
+</html>
